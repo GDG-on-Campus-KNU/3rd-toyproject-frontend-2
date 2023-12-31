@@ -1,6 +1,5 @@
 import Stack from '@mui/material/Stack';
 import { Button } from '@mui/material';
-import CallPage from '../../pages/CallPage';
 
 const CategoryButton = () => {
     return (
