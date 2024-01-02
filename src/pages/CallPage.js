@@ -4,6 +4,7 @@ import { Grid, Container } from '@mui/material';
 // import StaffCallButton from '../components/Button/CallButton/StaffCallButton.js';
 // import OrderContainer from '../components/Container/OrderContainer';
 import CategoryBar from '../components/CategoryBar.js';
+import Footer from '../components/Footer.js';
 
 const CallPage = () => {
     return (
@@ -15,6 +16,9 @@ const CallPage = () => {
                 <Grid item xs={6}>
                     CallPage
                 </Grid>
+            </Grid>
+            <Grid container marginTop={4} justifyContent="flex-end">
+                <Footer />
             </Grid>
         </Container>
     );

@@ -12,6 +12,7 @@ import chungha from '../assets/chungha.png';
 import highball from '../assets/highball.png';
 
 import './BackgroundColor.css';
+import Footer from '../components/Footer';
 
 const DrinkPage = () => {
     return (
@@ -40,6 +41,9 @@ const DrinkPage = () => {
                         <Grid item xs={4}>
                             <MenuCard image={highball} menu="산토리 하이볼" price="7,000" />
                         </Grid>
+                    </Grid>
+                    <Grid container marginTop={4} justifyContent="flex-end">
+                        <Footer />
                     </Grid>
                 </Grid>
             </Grid>

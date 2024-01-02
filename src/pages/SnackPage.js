@@ -39,7 +39,7 @@ const SnackPage = () => {
                             <MenuCard image={muktae} menu="마른안주세트" price="12,000" />
                         </Grid>
                     </Grid>
-                    <Grid container>
+                    <Grid container marginTop={4} justifyContent="flex-end">
                         <Footer />
                     </Grid>
                 </Grid>

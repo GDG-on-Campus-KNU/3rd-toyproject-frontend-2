@@ -1,6 +1,5 @@
 import Stack from '@mui/material/Stack';
-import { Typography } from '@mui/material';
-import { Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 
 const CategoryButton = ({ category, color, page }) => {
     return (

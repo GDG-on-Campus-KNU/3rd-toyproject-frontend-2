@@ -9,6 +9,7 @@ import zzambbong from '../assets/zzambbong.png';
 import fishcake from '../assets/fishcake.png';
 import sundubu from '../assets/sundubu.png';
 import './BackgroundColor.css';
+import Footer from '../components/Footer';
 
 const SoupPage = () => {
     return (
@@ -37,6 +38,9 @@ const SoupPage = () => {
                         <Grid item xs={4}>
                             <MenuCard image={sundubu} menu="순두부찌개" price="12,000" />
                         </Grid>
+                    </Grid>
+                    <Grid container marginTop={4} justifyContent="flex-end">
+                        <Footer />
                     </Grid>
                 </Grid>
             </Grid>
