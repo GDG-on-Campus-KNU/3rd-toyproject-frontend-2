@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# 3rd-toyproject-backend-4
+GDSC KNU 3기의 FE 2팀 &amp; BE 4팀 키오스크 토이 프로젝트의 백엔드 레포지토리입니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목적
+2024 Solution Challenge 시작전 간단한 토이 프로젝트 진행
 
-## Available Scripts
+## 주제
+테이스티 오더 - 식당 테이블 키오스크 제작
 
-In the project directory, you can run:
+## 팀원 소개
+### 프론트엔드
+| 신채원 | 이주연 | 허준수 | 김강민 |
+|:----:|:----:|:----:|:----:|
+| [<img src="https://github.com/chae-won-shin.png" width="100px">](https://github.com/chae-won-shin) | [<img src="https://github.com/leejooyeonn.png" width="100px">](https://github.com/leejooyeonn) | [<img src="https://github.com/githeoheo.png" width="100px">](https://github.com/githeoheo) | [<img src="https://github.com/Dobbymin.png" width="100px">](https://github.com/Dobbymin)|
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 백엔드
+| 신동혁 | 채정민 | 구은성 |
+|:----:|:----:|:----:|
+| [<img src="https://github.com/WannaBeTop.png" width="100px">](https://github.com/WannaBeTop) | [<img src="https://github.com/chaejm55.png" width="100px">](https://github.com/chaejm55) | [<img src="https://github.com/Koo-EunSung.png" width="100px">](https://github.com/Koo-EunSung) |
