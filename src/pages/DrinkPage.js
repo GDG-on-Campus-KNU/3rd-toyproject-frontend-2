@@ -2,6 +2,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 import MenuCard from '../components/Card/MenuCard';
+import CategoryBar from '../components/CategoryBar';
 
 import terra from '../assets/terra.png';
 import cass from '../assets/cass.png';
@@ -17,7 +18,7 @@ const DrinkPage = () => {
         <Container maxWidth="lg">
             <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
-                    CategoryBar
+                    <CategoryBar />
                 </Grid>
                 <Grid item xs={10}>
                     <Grid container spacing={5}>
