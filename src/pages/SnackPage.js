@@ -14,7 +14,7 @@ import './BackgroundColor.css';
 const SnackPage = () => {
     return (
         <Container maxWidth="lg">
-            <Grid container marginY="1px" spacing={10}>
+            <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
                     <CategoryBar />
                 </Grid>

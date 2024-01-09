@@ -4,28 +4,26 @@ import { Button } from '@mui/material';
 const CategoryButton = () => {
     return (
         <Stack spacing={2}>
-            <Stack spacing={2}>
-                <Button
-                    href="soup"
-                    sx={{
-                        color: 'black',
-                        backgroundColor: 'white',
-                        borderColor: 'black',
-                        width: '8.5rem',
-                        height: '3rem',
-                        borderRadius: 3,
-                        fontSize: '1rem',
+            <Button
+                href="soup"
+                sx={{
+                    color: 'black',
+                    backgroundColor: 'white',
+                    borderColor: 'black',
+                    width: '8.5rem',
+                    height: '3rem',
+                    borderRadius: 3,
+                    fontSize: '1rem',
 
-                        ':hover': {
-                            color: 'black',
-                            borderColor: 'black',
-                            backgroundColor: '#FFC700',
-                        },
-                    }}
-                >
-                    국물류
-                </Button>
-            </Stack>
+                    ':hover': {
+                        color: 'black',
+                        borderColor: 'black',
+                        backgroundColor: '#FFC700',
+                    },
+                }}
+            >
+                국물류
+            </Button>
             <Button
                 href="snack"
                 sx={{

@@ -13,8 +13,8 @@ import './BackgroundColor.css';
 
 const SoupPage = () => {
     return (
-        <Container fixed sx={{ m: 9 }}>
-            <Grid container spacing={10}>
+        <Container maxWidth="lg">
+            <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
                     <CategoryBar />
                 </Grid>
