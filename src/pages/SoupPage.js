@@ -11,7 +11,6 @@ import sundubu from "../assets/sundubu.png"
 import "./BackgroundColor.css";
 
 const SoupPage = () => {
-
     return (
     <Container fixed sx={{ m: 9}}>
         <Grid container spacing={10}>
@@ -24,24 +23,24 @@ const SoupPage = () => {
                         <MenuCard image={gobdori} menu="곱도리탕" price="28,000"/>
                     </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={alltang} menu="알탕" price="23,000"/>
+                            <MenuCard image={alltang} menu="알탕" price="23,000" />
                         </Grid>
-                    <Grid item xs={4}>
-                        <MenuCard image={bazirak} menu="바지락술찜" price="23,000"/>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <MenuCard image={zzambbong} menu="해물짬뽕탕" price="18,000"/>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <MenuCard image={fishcake} menu="어묵탕" price="12,000"/>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <MenuCard image={sundubu} menu="순두부찌개" price="12,000"/>
+                        <Grid item xs={4}>
+                            <MenuCard image={bazirak} menu="바지락술찜" price="23,000" />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <MenuCard image={zzambbong} menu="해물짬뽕탕" price="18,000" />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <MenuCard image={fishcake} menu="어묵탕" price="12,000" />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <MenuCard image={sundubu} menu="순두부찌개" price="12,000" />
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-        </Grid>
-    </Container>
+        </Container>
     );
 };
 
