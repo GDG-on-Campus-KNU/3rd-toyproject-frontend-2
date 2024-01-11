@@ -1,7 +1,7 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
 import MenuCard from '../components/Card/MenuCard';
+import CategoryBar from '../components/CategoryBar';
 import zzuggumi from '../assets/zzuggumi.png';
 import dakbal from '../assets/dakbal.png';
 import ggozi from '../assets/ggozi.png';
@@ -10,13 +10,14 @@ import topoki from '../assets/topoki.png';
 import muktae from '../assets/muktae.png';
 import CategoryBar from '../components/CategoryBar';
 import './BackgroundColor.css';
+import Footer from '../components/Footer';
 
 const SnackPage = () => {
     return (
-        <Container maxWidth="lg">
-            <Grid container marginY="1px" spacing={4}>
+        <Container fixed sx={{ m: 9 }}>
+            <Grid container spacing={4}>
                 <Grid item xs={2}>
-                    <CategoryBar />
+                    <CategoryBar category="snack" />
                 </Grid>
                 <Grid item xs={10}>
                     <Grid container spacing={5}>
@@ -38,6 +39,9 @@ const SnackPage = () => {
                         <Grid item xs={4}>
                             <MenuCard image={muktae} menu="마른안주세트" price="12,000" />
                         </Grid>
+                    </Grid>
+                    <Grid container>
+                        <Footer />
                     </Grid>
                 </Grid>
             </Grid>

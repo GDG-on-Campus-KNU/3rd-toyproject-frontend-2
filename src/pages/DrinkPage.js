@@ -18,7 +18,7 @@ const DrinkPage = () => {
         <Container maxWidth="lg">
             <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
-                    <CategoryBar />
+                    <CategoryBar category="drink" />
                 </Grid>
                 <Grid item xs={10}>
                     <Grid container spacing={5}>

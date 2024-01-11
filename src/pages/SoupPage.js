@@ -1,14 +1,13 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
 import MenuCard from '../components/Card/MenuCard';
+import CategoryBar from '../components/CategoryBar';
 import gobdori from '../assets/gobdori.png';
 import alltang from '../assets/alltang.png';
 import bazirak from '../assets/bazirak.png';
 import zzambbong from '../assets/zzambbong.png';
 import fishcake from '../assets/fishcake.png';
 import sundubu from '../assets/sundubu.png';
-import CategoryBar from '../components/CategoryBar';
 import './BackgroundColor.css';
 
 const SoupPage = () => {
@@ -16,7 +15,7 @@ const SoupPage = () => {
         <Container maxWidth="lg">
             <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
-                    <CategoryBar />
+                    <CategoryBar category="soup" />
                 </Grid>
                 <Grid item xs={10}>
                     <Grid container spacing={5}>

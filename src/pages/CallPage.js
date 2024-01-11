@@ -10,7 +10,7 @@ const CallPage = () => {
         <Container maxWidth="lg">
             <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
-                    <CategoryBar />
+                    <CategoryBar category="call" />
                 </Grid>
                 <Grid item xs={6}>
                     CallPage
