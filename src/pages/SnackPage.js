@@ -8,14 +8,13 @@ import ggozi from '../assets/ggozi.png';
 import kongbul from '../assets/kongbul.png';
 import topoki from '../assets/topoki.png';
 import muktae from '../assets/muktae.png';
-import CategoryBar from '../components/CategoryBar';
 import './BackgroundColor.css';
 import Footer from '../components/Footer';
 
 const SnackPage = () => {
     return (
-        <Container fixed sx={{ m: 9 }}>
-            <Grid container spacing={4}>
+        <Container maxWidth="lg">
+            <Grid container marginY="1px" spacing={4}>
                 <Grid item xs={2}>
                     <CategoryBar category="snack" />
                 </Grid>
