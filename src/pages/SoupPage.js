@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import MenuCard from "../components/Card/MenuCard";
+import CategoryBar from "../components/CategoryBar";
 import gobdori from "../assets/gobdori.png"
 import alltang from "../assets/alltang.png"
 import bazirak from "../assets/bazirak.png"
@@ -15,7 +16,7 @@ const SoupPage = () => {
     <Container fixed sx={{ m: 9}}>
         <Grid container spacing={10}>
             <Grid item xs={2}>
-                CategoryBar
+                <CategoryBar category='soup' />
             </Grid>
             <Grid item xs={10}>
                 <Grid container spacing={5}>
