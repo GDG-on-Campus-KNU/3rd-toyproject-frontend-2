@@ -1,10 +1,11 @@
 import { Grid, Container } from '@mui/material';
 
-// import CallCard from '../components/Card/CallCard';
-// import StaffCallButton from '../components/Button/CallButton/StaffCallButton.js';
-// import OrderContainer from '../components/Container/OrderContainer';
+import StaffCallButton from '../components/Button/CallButton/StaffCallButton.js';
+import OrderContainer from '../components/OrderContainer.js';
+import CardContainer from '../components/CardContainer.js';
 import CategoryBar from '../components/CategoryBar.js';
 import Footer from '../components/Footer.js';
+import { orderGridStyle } from '../styles/CallPageStyle.js';
 
 const CallPage = () => {
     return (
@@ -14,11 +15,18 @@ const CallPage = () => {
                     <CategoryBar category="call" />
                 </Grid>
                 <Grid item xs={6}>
-                    CallPage
+                    <CardContainer />
+                    <Grid item xs={12}>
+                        <StaffCallButton>직원만 호출하기</StaffCallButton>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid container marginTop={4} justifyContent="flex-end">
-                <Footer />
+                <Grid container sx={orderGridStyle} xs={4}>
+                    <OrderContainer />
+                    <OrderContainer />
+                </Grid>
+                <Grid container marginTop={4} justifyContent="flex-end">
+                    <Footer />
+                </Grid>
             </Grid>
         </Container>
     );
