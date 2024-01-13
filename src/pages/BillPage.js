@@ -140,8 +140,11 @@ const BillPage = () => {
                     </Box>
                 </Grid>
             </Grid>
-        </Container>
-    );
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
+  );
 };
 
 export default BillPage;
