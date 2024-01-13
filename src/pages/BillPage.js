@@ -8,94 +8,23 @@ import Paper from '@mui/material/Paper';
 import './BackgroundColor.css';
 
 import tag from '../assets/tag.png';
-
-const billBoxStyle = {
-    bgcolor: '#ffffff',
-    height: '77vh',
-    borderRadius: '15px',
-    padding: '30px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-};
-
-const titleBoxStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
-    width: '100%',
-};
-
-const closeButtonStyle = {
-    borderRadius: '50px',
-    bgcolor: '#000000',
-    '&:hover': { bgcolor: '#808080' },
-    marginLeft: 'auto',
-};
-
-const numButtonStyle = {
-    borderRadius: '50px',
-    bgcolor: '#000000',
-    '&:hover': { bgcolor: '#808080' },
-};
-
-const tagImgStyle = {
-    width: '50px',
-    height: '50px',
-    marginRight: '20px',
-};
-
-const h4Style = {
-    color: '#ffc700',
-    margin: 5,
-    fontWeight: 'bold',
-};
-
-const h5Style = {
-    color: '#ffc700',
-    margin: 5,
-    fontWeight: 'bold',
-    marginLeft: 'auto',
-};
-
-const line1Style = {
-    borderTop: '5px solid #ffc700',
-    width: '100%',
-    marginY: '10px',
-};
-
-const line2Style = {
-    borderTop: '1px solid #000000',
-    width: '100%',
-};
-
-const gridContainerStyle = {
-    display: 'grid',
-    gridTemplateColumns: '7fr 2fr 1fr 2fr',
-    gap: '10px',
-};
-
-const textCellStyle = {
-    padding: '20px',
-};
-
-const paperBoxStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    border: '1px solid #000',
-    borderRadius: '50px',
-    padding: '5px',
-    width: '100%',
-    marginBottom: '15px',
-    marginTop: '15px',
-};
+import {
+    billBoxStyle,
+    closeButtonStyle,
+    gridContainerStyle,
+    h4Style,
+    h5Style,
+    line1Style,
+    line2Style,
+    numButtonStyle,
+    paperBoxStyle,
+    tagImgStyle,
+    textCellStyle,
+    titleBoxStyle,
+} from '../styles/BillPageStyle';
 
 const BillPage = () => {
     return (
-        // <Container fixed sx={{ m: 10 }}>
         <Container maxWidth="lg">
             <Grid container marginX={2}>
                 <Grid item xs={10} marginX={2}>
