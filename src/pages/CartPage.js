@@ -1,4 +1,6 @@
 // import Footer from "../components/Footer";
+// import CartList from "../components/List/CartList.js";
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -151,7 +153,7 @@ const CartPage = () => {
               <Typography variant="h4" style={h4Style}>
                 장바구니
               </Typography>
-              <Button variant="contained" sx={closeButtonStyle}>
+              <Button href={"soup"} variant="contained" sx={closeButtonStyle}>
                 X 닫기
               </Button>
             </Box>
@@ -292,7 +294,11 @@ const CartPage = () => {
                     <Button variant="contained" sx={numButtonStyle}>
                       전체삭제
                     </Button>
-                    <Button variant="contained" sx={numButtonStyle}>
+                    <Button
+                      href={"soup"}
+                      variant="contained"
+                      sx={numButtonStyle}
+                    >
                       계속 선택하기
                     </Button>
                     <Button variant="contained" sx={numButtonStyle}>
