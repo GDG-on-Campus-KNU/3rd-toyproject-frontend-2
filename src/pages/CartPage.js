@@ -1,6 +1,6 @@
-// import Footer from "../components/Footer";
 import { useState } from "react";
 import CategoryBar from "../components/CategoryBar";
+import Footer from "../components/Footer";
 import CartList from "../components/List/CartList.js";
 import PaymentButton from "../components/Button/PaymentButton.js";
 import OrderButton from "../components/Button/OrderButton.js";
@@ -178,6 +178,9 @@ const CartPage = () => {
               </Grid>
             </Grid>
           </Box>
+          <Grid container marginTop={4} justifyContent="flex-end">
+            <Footer />
+          </Grid>
         </Grid>
       </Grid>
     </Container>
