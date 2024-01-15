@@ -57,6 +57,16 @@ const CartList = () => {
     });
   };
 
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  if (lists.length === 0) {
+    return (
+      <Paper elevation={0} sx={{ width: "100%", minHeight: "70%" }}></Paper>
+    );
+  }
+
   return (
     <Paper elevation={0} sx={{ width: "100%", minHeight: "70%" }}>
       {/* 컴포넌트화하기ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */}
