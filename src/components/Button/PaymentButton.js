@@ -74,7 +74,7 @@ SimpleDialog.propTypes = {
   selectedValue: PropTypes.string.isRequired,
 };
 
-export default function Payment(props) {
+export default function PaymentButton(props) {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(paymentSelect[0]);
   const { paymentFunction } = props;

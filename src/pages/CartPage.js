@@ -1,7 +1,9 @@
 // import Footer from "../components/Footer";
 import { useState } from "react";
+import CategoryBar from "../components/CategoryBar";
 import CartList from "../components/List/CartList.js";
-import Payment from "../components/Button/Payment.js";
+import PaymentButton from "../components/Button/PaymentButton.js";
+import OrderButton from "../components/Button/OrderButton.js";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -42,13 +44,6 @@ const closeButtonStyle = {
 const numButtonStyle = {
   borderRadius: "50px",
   bgcolor: "#000000",
-  "&:hover": { bgcolor: "#808080" },
-};
-
-const orderButtonStyle = {
-  color: "black",
-  borderRadius: "50px",
-  bgcolor: "#FFC700",
   "&:hover": { bgcolor: "#808080" },
 };
 
@@ -103,16 +98,17 @@ const paperBoxStyle = {
 
 const CartPage = () => {
   const [payment, setPayment] = useState("CARD");
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const paymentFunction = (pm) => {
     setPayment(pm);
   };
 
   return (
-    <Container fixed sx={{ m: 9 }}>
-      <Grid container>
+    <Container maxWidth="lg">
+      <Grid container marginY="1px" spacing={4}>
         <Grid item xs={2}>
-          CategoryBar
+          <CategoryBar />
         </Grid>
         <Grid item xs={10}>
           <Box sx={billBoxStyle}>
@@ -143,7 +139,7 @@ const CartPage = () => {
                   }}
                 >
                   <Typography variant="h5" style={h5Style}>
-                    합계 45,000원
+                    합계 &nbsp;{totalPrice}원
                   </Typography>
                 </Paper>
               </Grid>
@@ -172,11 +168,11 @@ const CartPage = () => {
                     </Button>
 
                     {/* 결제수단 버튼 */}
-                    <Payment paymentFunction={paymentFunction} />
+                    <PaymentButton paymentFunction={paymentFunction} />
 
-                    <Button variant="contained" sx={orderButtonStyle}>
-                      주문하기
-                    </Button>
+                    {/* 주문하기 버튼 */}
+                    {/* 여기에 결제수단 payment정보 api송출 */}
+                    <OrderButton payment={payment} />
                   </Box>
                 </Paper>
               </Grid>
