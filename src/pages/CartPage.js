@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import CartList from "../components/List/CartList.js";
 import PaymentButton from "../components/Button/PaymentButton.js";
 import OrderButton from "../components/Button/OrderButton.js";
+import DeleteAllButton from "../components/Button/DeleteAllButton.js";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -156,9 +157,9 @@ const CartPage = () => {
                   }}
                 >
                   <Box sx={paperBoxStyle}>
-                    <Button variant="contained" sx={numButtonStyle}>
-                      전체삭제
-                    </Button>
+                    {/* 전체삭제버튼 */}
+                    <DeleteAllButton />
+
                     <Button
                       href={"soup"}
                       variant="contained"
