@@ -57,6 +57,45 @@ const CartList = () => {
     });
   };
 
+  const deleteList = (e, id) => {
+    e.stopPropagation();
+    // console.log("delete blogs");
+    axios.delete(`http://35.208.58.86:8080/api/cart/${id}`).then(() => {
+      setLists((prevLists) => {
+        return prevLists.filter((list) => {
+          return list.id !== id;
+        });
+      });
+    });
+  };
+
+  const plusAmount = () => {
+    axios
+      .patch(`http://35.208.58.86:8080/api/cart/${id}`, {
+        amount: list.cartItems[0].amount + 1,
+      })
+      .then((res) => {
+        setLists(res.data);
+        console.log("수량증가완료");
+      });
+  };
+
+  const minusAmount = () => {
+    axios
+      .patch(`http://35.208.58.86:8080/api/cart/${id}`, {
+        amount: list.cartItems[0].amount - 1,
+      })
+      .then((res) => {
+        setLists(res.data);
+        console.log("수량감소완료");
+
+        // 수량 변경 후 amount가 0이 되면 장바구니에서 해당 상품 삭제
+        if (list.cartItems[0].amount === 0) {
+          deleteList(res, list.cartItems[0].menuId);
+        }
+      });
+  };
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -77,13 +116,21 @@ const CartList = () => {
               {list.cartItems[0].menuId} {list.cartItems[0].menuName} 1 참이슬
             </Typography>
 
-            <Button variant="contained" sx={cartDeleteButtonStyle}>
+            <Button
+              variant="contained"
+              onClick={(e) => deleteList(e, list.cartItems[0].menuId)}
+              sx={cartDeleteButtonStyle}
+            >
               X
             </Button>
           </Box>
 
           <Box sx={textCellStyle}>
-            <Button variant="contained" sx={cartButtonStyle}>
+            <Button
+              variant="contained"
+              onClick={plusAmount}
+              sx={cartButtonStyle}
+            >
               +
             </Button>
             <Typography
@@ -92,7 +139,11 @@ const CartList = () => {
             >
               {list.cartItems[0].amount}개
             </Typography>
-            <Button variant="contained" sx={cartButtonStyle}>
+            <Button
+              variant="contained"
+              onClick={minusAmount}
+              sx={cartButtonStyle}
+            >
               -
             </Button>
 
