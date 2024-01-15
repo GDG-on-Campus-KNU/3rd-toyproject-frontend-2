@@ -1,5 +1,7 @@
 // import Footer from "../components/Footer";
-// import CartList from "../components/List/CartList.js";
+import { useState } from "react";
+import CartList from "../components/List/CartList.js";
+import Payment from "../components/Button/Payment.js";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -37,28 +39,6 @@ const closeButtonStyle = {
   marginLeft: "auto",
 };
 
-const cartDeleteButtonStyle = {
-  color: "black",
-  //   width: 24,
-  minWidth: 44,
-  height: 34,
-  borderRadius: "50px",
-  bgcolor: "#D0D1D5",
-  "&:hover": { bgcolor: "#808080" },
-  marginLeft: "auto",
-};
-
-const cartButtonStyle = {
-  color: "black",
-  //   width: 24,
-  minWidth: 44,
-  height: 34,
-  borderRadius: "50px",
-  bgcolor: "#D0D1D5",
-  "&:hover": { bgcolor: "#808080" },
-  // marginLeft: "auto",
-};
-
 const numButtonStyle = {
   borderRadius: "50px",
   bgcolor: "#000000",
@@ -76,10 +56,6 @@ const tagImgStyle = {
   width: "50px",
   height: "50px",
   marginRight: "20px",
-};
-
-const priceStyle = {
-  marginLeft: "auto",
 };
 
 const h4Style = {
@@ -101,24 +77,10 @@ const line1Style = {
   marginY: "10px",
 };
 
-const line2Style = {
-  borderTop: "1px solid #000000",
-  width: "100%",
-  marginBottom: "10px",
-};
-
 const gridContainerStyle = {
   display: "grid",
   gridTemplateColumns: "7fr 2fr 1fr 2fr",
   gap: "10px",
-};
-
-const textCellStyle = {
-  display: "flex",
-  alignItems: "center",
-  marginBottom: "10px",
-  width: "100%",
-  //   padding: "20px",
 };
 
 const paperBoxStyle = {
@@ -140,6 +102,12 @@ const paperBoxStyle = {
 };
 
 const CartPage = () => {
+  const [payment, setPayment] = useState("CARD");
+
+  const paymentFunction = (pm) => {
+    setPayment(pm);
+  };
+
   return (
     <Container fixed sx={{ m: 9 }}>
       <Grid container>
@@ -159,107 +127,8 @@ const CartPage = () => {
             </Box>
             <Box sx={line1Style} />
 
-            {/* 장바구니 내역 */}
-            <Paper elevation={0} sx={{ width: "100%", minHeight: "70%" }}>
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    1 참이슬
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    2개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 10,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    2 직화무뼈닭발
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    1개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 12,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    3 순두부찌개
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    1개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 23,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-            </Paper>
+            {/* 장바구니 리스트 */}
+            <CartList />
 
             <Box sx={line1Style} />
 
@@ -301,9 +170,10 @@ const CartPage = () => {
                     >
                       계속 선택하기
                     </Button>
-                    <Button variant="contained" sx={numButtonStyle}>
-                      결제수단
-                    </Button>
+
+                    {/* 결제수단 버튼 */}
+                    <Payment paymentFunction={paymentFunction} />
+
                     <Button variant="contained" sx={orderButtonStyle}>
                       주문하기
                     </Button>
