@@ -69,10 +69,10 @@ const CartList = () => {
     });
   };
 
-  const plusAmount = () => {
+  const plusAmount = (amount, id) => {
     axios
       .patch(`http://35.208.58.86:8080/api/cart/${id}`, {
-        amount: list.cartItems[0].amount + 1,
+        amount: amount + 1,
       })
       .then((res) => {
         setLists(res.data);
@@ -80,25 +80,25 @@ const CartList = () => {
       });
   };
 
-  const minusAmount = () => {
+  const minusAmount = (amount, id) => {
     axios
       .patch(`http://35.208.58.86:8080/api/cart/${id}`, {
-        amount: list.cartItems[0].amount - 1,
+        amount: amount - 1,
       })
       .then((res) => {
         setLists(res.data);
         console.log("수량감소완료");
 
         // 수량 변경 후 amount가 0이 되면 장바구니에서 해당 상품 삭제
-        if (list.cartItems[0].amount === 0) {
-          deleteList(res, list.cartItems[0].menuId);
+        if (amount === 0) {
+          deleteList(res, id);
         }
       });
   };
 
-  useEffect(() => {
-    getPosts();
-  }, []);
+  // useEffect(() => {
+  //   getPosts();
+  // }, []);
 
   if (lists.length === 0) {
     return (
@@ -128,7 +128,10 @@ const CartList = () => {
           <Box sx={textCellStyle}>
             <Button
               variant="contained"
-              onClick={plusAmount}
+              onClick={plusAmount(
+                list.cartItems[0].amount,
+                list.cartItems[0].menuId
+              )}
               sx={cartButtonStyle}
             >
               +
@@ -141,7 +144,10 @@ const CartList = () => {
             </Typography>
             <Button
               variant="contained"
-              onClick={minusAmount}
+              onClick={minusAmount(
+                list.cartItems[0].amount,
+                list.cartItems[0].menuId
+              )}
               sx={cartButtonStyle}
             >
               -
