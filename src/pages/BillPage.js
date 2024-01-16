@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -6,8 +7,9 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 
 import './BackgroundColor.css';
-
 import tag from '../assets/tag.png';
+import { useNavigate } from 'react-router-dom';
+
 import {
     billBoxStyle,
     closeButtonStyle,
@@ -24,6 +26,41 @@ import {
 } from '../styles/BillPageStyle';
 
 const BillPage = () => {
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        navigate(-1);
+    }
+
+    const [apiResponse, setApiResponse] = useState({
+        orderId: 0,
+        totalPrice: 0,
+        items: [],
+    });
+
+    const [numOfPeople, setNumOfPeople] = useState(3); // 초기값 3
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://35.208.58.86:8080/api/order');
+                const data = await response.json();
+                setApiResponse(data);
+            } catch (error) {
+                console.error('API 호출 중 오류 발생:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleIncrement = () => {
+        setNumOfPeople(num => num + 1);
+    };
+
+    const handleDecrement = () => {
+        setNumOfPeople(num => Math.max(1, num - 1)); // 최소값 1
+    };
+
     return (
         <Container maxWidth="lg">
             <Grid container marginX={2}>
@@ -34,66 +71,34 @@ const BillPage = () => {
                             <Typography variant="h4" style={h4Style}>
                                 계산서
                             </Typography>
-                            <Button variant="contained" sx={closeButtonStyle}>
+                            <Button variant="contained" onClick={handleGoBack} sx={closeButtonStyle}>
                                 X 닫기
                             </Button>
                         </Box>
                         <Box sx={line1Style} />
 
                         <Paper elevation={0} sx={{ width: '100%', minHeight: '70%' }}>
-                            <Box sx={gridContainerStyle}>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-                                        직화무뼈닭발
-                                    </Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">23,000원</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">1개</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">23,000원</Typography>
-                                </Box>
-                            </Box>
-                            <Box sx={line2Style} />
-
-                            <Box sx={gridContainerStyle}>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-                                        순두부찌개
-                                    </Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">12,000원</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">1개</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">12,000원</Typography>
-                                </Box>
-                            </Box>
-                            <Box sx={line2Style} />
-
-                            <Box sx={gridContainerStyle}>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1" style={{ fontWeight: 'bold' }}>
-                                        참이슬
-                                    </Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">5,000원</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">2개</Typography>
-                                </Box>
-                                <Box sx={textCellStyle}>
-                                    <Typography variant="body1">10,000원</Typography>
-                                </Box>
-                            </Box>
-                            <Box sx={line2Style} />
+                            {apiResponse.items.map(item => (
+                                <React.Fragment key={item.orderItemId}>
+                                    <Box sx={gridContainerStyle}>
+                                        <Box sx={textCellStyle}>
+                                            <Typography variant="body1" style={{ fontWeight: 'bold' }}>
+                                                {item.menuName}
+                                            </Typography>
+                                        </Box>
+                                        <Box sx={textCellStyle}>
+                                            <Typography variant="body1">{item.menuPrice.toFixed(2)}원</Typography>
+                                        </Box>
+                                        <Box sx={textCellStyle}>
+                                            <Typography variant="body1">{item.amount}개</Typography>
+                                        </Box>
+                                        <Box sx={textCellStyle}>
+                                            <Typography variant="body1">{item.itemTotalPrice.toFixed(2)}원</Typography>
+                                        </Box>
+                                    </Box>
+                                    <Box sx={line2Style} />
+                                </React.Fragment>
+                            ))}
                         </Paper>
 
                         <Box sx={line1Style} />
@@ -114,17 +119,17 @@ const BillPage = () => {
                                         <Typography variant="body1" style={{ marginRight: '10px' }}>
                                             더치페이
                                         </Typography>
-                                        <Button variant="contained" sx={numButtonStyle}>
+                                        <Button variant="contained" onClick={handleIncrement} sx={numButtonStyle}>
                                             +
                                         </Button>
                                         <Typography variant="body1" style={{ margin: '0 10px' }}>
-                                            3
+                                            {numOfPeople}
                                         </Typography>
-                                        <Button variant="contained" sx={numButtonStyle}>
+                                        <Button variant="contained" onClick={handleDecrement} sx={numButtonStyle}>
                                             -
                                         </Button>
                                         <Typography variant="body1" style={{ marginLeft: '10px' }}>
-                                            1인당 15,000원
+                                            1인당 {(apiResponse.totalPrice / numOfPeople).toFixed(2)}원
                                         </Typography>
                                     </Box>
                                 </Paper>
@@ -132,7 +137,7 @@ const BillPage = () => {
                             <Grid item xs={4}>
                                 <Paper elevation={0} sx={{ minHeight: '100% ', display: 'flex', alignItems: 'center' }}>
                                     <Typography variant="h5" style={h5Style}>
-                                        합계 45,000원
+                                        합계 {apiResponse.totalPrice}원
                                     </Typography>
                                 </Paper>
                             </Grid>
