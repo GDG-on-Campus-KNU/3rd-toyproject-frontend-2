@@ -1,4 +1,11 @@
-// import Footer from "../components/Footer";
+import { useState } from "react";
+import CategoryBar from "../components/CategoryBar";
+import Footer from "../components/Footer";
+import CartList from "../components/List/CartList.js";
+import PaymentButton from "../components/Button/PaymentButton.js";
+import OrderButton from "../components/Button/OrderButton.js";
+import DeleteAllButton from "../components/Button/DeleteAllButton.js";
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -35,38 +42,9 @@ const closeButtonStyle = {
   marginLeft: "auto",
 };
 
-const cartDeleteButtonStyle = {
-  color: "black",
-  //   width: 24,
-  minWidth: 44,
-  height: 34,
-  borderRadius: "50px",
-  bgcolor: "#D0D1D5",
-  "&:hover": { bgcolor: "#808080" },
-  marginLeft: "auto",
-};
-
-const cartButtonStyle = {
-  color: "black",
-  //   width: 24,
-  minWidth: 44,
-  height: 34,
-  borderRadius: "50px",
-  bgcolor: "#D0D1D5",
-  "&:hover": { bgcolor: "#808080" },
-  // marginLeft: "auto",
-};
-
 const numButtonStyle = {
   borderRadius: "50px",
   bgcolor: "#000000",
-  "&:hover": { bgcolor: "#808080" },
-};
-
-const orderButtonStyle = {
-  color: "black",
-  borderRadius: "50px",
-  bgcolor: "#FFC700",
   "&:hover": { bgcolor: "#808080" },
 };
 
@@ -74,10 +52,6 @@ const tagImgStyle = {
   width: "50px",
   height: "50px",
   marginRight: "20px",
-};
-
-const priceStyle = {
-  marginLeft: "auto",
 };
 
 const h4Style = {
@@ -99,24 +73,10 @@ const line1Style = {
   marginY: "10px",
 };
 
-const line2Style = {
-  borderTop: "1px solid #000000",
-  width: "100%",
-  marginBottom: "10px",
-};
-
 const gridContainerStyle = {
   display: "grid",
   gridTemplateColumns: "7fr 2fr 1fr 2fr",
   gap: "10px",
-};
-
-const textCellStyle = {
-  display: "flex",
-  alignItems: "center",
-  marginBottom: "10px",
-  width: "100%",
-  //   padding: "20px",
 };
 
 const paperBoxStyle = {
@@ -138,11 +98,18 @@ const paperBoxStyle = {
 };
 
 const CartPage = () => {
+  const [payment, setPayment] = useState("CARD");
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const paymentFunction = (pm) => {
+    setPayment(pm);
+  };
+
   return (
-    <Container fixed sx={{ m: 9 }}>
-      <Grid container>
+    <Container maxWidth="lg">
+      <Grid container marginY="1px" spacing={4}>
         <Grid item xs={2}>
-          CategoryBar
+          <CategoryBar />
         </Grid>
         <Grid item xs={10}>
           <Box sx={billBoxStyle}>
@@ -151,113 +118,14 @@ const CartPage = () => {
               <Typography variant="h4" style={h4Style}>
                 장바구니
               </Typography>
-              <Button variant="contained" sx={closeButtonStyle}>
+              <Button href={"soup"} variant="contained" sx={closeButtonStyle}>
                 X 닫기
               </Button>
             </Box>
             <Box sx={line1Style} />
 
-            {/* 장바구니 내역 */}
-            <Paper elevation={0} sx={{ width: "100%", minHeight: "70%" }}>
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    1 참이슬
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    2개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 10,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    2 직화무뼈닭발
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    1개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 12,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-
-              <Box>
-                <Box sx={textCellStyle}>
-                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
-                    3 순두부찌개
-                  </Typography>
-
-                  <Button variant="contained" sx={cartDeleteButtonStyle}>
-                    X
-                  </Button>
-                </Box>
-
-                {/* 여기수정해야함 */}
-                <Box sx={textCellStyle}>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    +
-                  </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ marginLeft: 17, marginRight: 17 }}
-                  >
-                    1개
-                  </Typography>
-                  <Button variant="contained" sx={cartButtonStyle}>
-                    -
-                  </Button>
-
-                  <Typography variant="body1" style={priceStyle}>
-                    가격 23,000원
-                  </Typography>
-                </Box>
-              </Box>
-              <Box sx={line2Style} />
-            </Paper>
+            {/* 장바구니 리스트 */}
+            <CartList />
 
             <Box sx={line1Style} />
 
@@ -272,7 +140,7 @@ const CartPage = () => {
                   }}
                 >
                   <Typography variant="h5" style={h5Style}>
-                    합계 45,000원
+                    합계 &nbsp;{totalPrice}원
                   </Typography>
                 </Paper>
               </Grid>
@@ -289,23 +157,31 @@ const CartPage = () => {
                   }}
                 >
                   <Box sx={paperBoxStyle}>
-                    <Button variant="contained" sx={numButtonStyle}>
-                      전체삭제
-                    </Button>
-                    <Button variant="contained" sx={numButtonStyle}>
+                    {/* 전체삭제버튼 */}
+                    <DeleteAllButton />
+
+                    <Button
+                      href={"soup"}
+                      variant="contained"
+                      sx={numButtonStyle}
+                    >
                       계속 선택하기
                     </Button>
-                    <Button variant="contained" sx={numButtonStyle}>
-                      결제수단
-                    </Button>
-                    <Button variant="contained" sx={orderButtonStyle}>
-                      주문하기
-                    </Button>
+
+                    {/* 결제수단 버튼 */}
+                    <PaymentButton paymentFunction={paymentFunction} />
+
+                    {/* 주문하기 버튼 */}
+                    {/* 여기에 결제수단 payment정보 api송출 */}
+                    <OrderButton payment={payment} />
                   </Box>
                 </Paper>
               </Grid>
             </Grid>
           </Box>
+          <Grid container marginTop={4} justifyContent="flex-end">
+            <Footer />
+          </Grid>
         </Grid>
       </Grid>
     </Container>
