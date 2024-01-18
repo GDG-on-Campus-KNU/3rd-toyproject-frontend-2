@@ -1,17 +1,24 @@
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import { Card } from '@mui/material';
+import axios from 'axios';
 
 import React from 'react'; //추가
 
-const MenuCard = ({ image, menu, price, onSelect }) => { //onSelect prop 추가
+const MenuCard = ({ id, image, menu, price }) => { //onSelect prop 추가
     const handleClick = () => { //추가 (메뉴 카드가 클릭되면 onSelect 함수 호출)
-        onSelect(menu);
-        console.log('menu card is clicked!');
+        axios.post('http://35.208.58.86:8080/api/cart',{
+            "menuId":id,
+            "menuName":menu,
+            "menuPrice":price,
+            "amount":"1"
+        })
+        .then(function (response) {
+            console.log(response);
+        }).catch(function (error){
+            console.log(error);
+        });
     }
 
     return (
