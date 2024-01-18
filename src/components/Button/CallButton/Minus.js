@@ -1,26 +1,12 @@
-import { Card, Typography } from '@mui/material';
-import { buttonTextStyle1 } from '../../../styles/CallPageStyle';
+import { Button, Typography } from '@mui/material';
+
+import { AllRemoveButtonStyle, buttonTextStyle1 } from '../../../styles/CallPageStyle';
 
 const Minus = () => {
     return (
-        <Card
-            sx={{
-                color: 'white',
-                backgroundColor: 'black',
-                borderRadius: '0.5rem',
-                fontSize: '1.1rem',
-                width: '2rem',
-                height: '2rem',
-
-                ':hover': {
-                    color: 'white',
-                    borderColor: 'black',
-                    backgroundColor: 'black',
-                },
-            }}
-        >
+        <Button sx={AllRemoveButtonStyle}>
             <Typography sx={buttonTextStyle1}>-</Typography>
-        </Card>
+        </Button>
     );
 };
 
