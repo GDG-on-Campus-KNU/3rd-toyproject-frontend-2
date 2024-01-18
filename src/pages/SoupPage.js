@@ -21,22 +21,22 @@ const SoupPage = () => {
                 <Grid item xs={10}>
                     <Grid container spacing={5}>
                         <Grid item xs={4}>
-                            <MenuCard image={gobdori} menu="곱도리탕" price="28,000" />
+                            <MenuCard id="1" image={gobdori} menu="곱도리탕" price="28000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={alltang} menu="알탕" price="23,000" />
+                            <MenuCard id="2" image={alltang} menu="알탕" price="23000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={bazirak} menu="바지락술찜" price="23,000" />
+                            <MenuCard id="3" image={bazirak} menu="바지락술찜" price="23000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={zzambbong} menu="해물짬뽕탕" price="18,000" />
+                            <MenuCard id="4" image={zzambbong} menu="해물짬뽕탕" price="18000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={fishcake} menu="어묵탕" price="12,000" />
+                            <MenuCard id="5" image={fishcake} menu="어묵탕" price="12000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={sundubu} menu="순두부찌개" price="12,000" />
+                            <MenuCard id="6" image={sundubu} menu="순두부찌개" price="12000" />
                         </Grid>
                     </Grid>
                     <Grid container marginTop={4} justifyContent="flex-end">

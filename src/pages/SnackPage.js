@@ -21,22 +21,22 @@ const SnackPage = () => {
                 <Grid item xs={10}>
                     <Grid container spacing={5}>
                         <Grid item xs={4}>
-                            <MenuCard image={zzuggumi} menu="쭈꾸미낙지볶음" price="23,000" />
+                            <MenuCard id="7" image={zzuggumi} menu="쭈꾸미낙지볶음" price="23000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={dakbal} menu="직화무뼈닭발" price="23,000" />
+                            <MenuCard id="8" image={dakbal} menu="직화무뼈닭발" price="23000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={ggozi} menu="모듬꼬치" price="18,000" />
+                            <MenuCard id="9" image={ggozi} menu="모듬꼬치" price="18000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={kongbul} menu="콩나물불고기" price="15,000" />
+                            <MenuCard id="10" image={kongbul} menu="콩나물불고기" price="15000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={topoki} menu="떡볶이납작만두" price="12,000" />
+                            <MenuCard id="11" image={topoki} menu="떡볶이납작만두" price="12000" />
                         </Grid>
                         <Grid item xs={4}>
-                            <MenuCard image={muktae} menu="마른안주세트" price="12,000" />
+                            <MenuCard id="12" image={muktae} menu="마른안주세트" price="12000" />
                         </Grid>
                     </Grid>
                     <Grid container marginTop={4} justifyContent="flex-end">
