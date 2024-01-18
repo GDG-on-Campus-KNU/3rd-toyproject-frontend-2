@@ -4,9 +4,9 @@ import { buttonTextStyle1, plusButtonStyle } from '../../../styles/CallPageStyle
 
 const Plus = () => {
     return (
-        <Button sx={plusButtonStyle}>
+        <button style={plusButtonStyle}>
             <Typography sx={buttonTextStyle1}>+</Typography>
-        </Button>
+        </button>
     );
 };
 

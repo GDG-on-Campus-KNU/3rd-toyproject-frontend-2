@@ -1,12 +1,12 @@
 import { Button, Typography } from '@mui/material';
 
-import { AllRemoveButtonStyle, buttonTextStyle1 } from '../../../styles/CallPageStyle';
+import { buttonTextStyle1, minusButtonStyle } from '../../../styles/CallPageStyle';
 
 const Minus = () => {
     return (
-        <Button sx={AllRemoveButtonStyle}>
+        <button style={minusButtonStyle}>
             <Typography sx={buttonTextStyle1}>-</Typography>
-        </Button>
+        </button>
     );
 };
 

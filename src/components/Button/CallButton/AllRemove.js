@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-import { minusButtonStyle } from '../../../styles/CallPageStyle';
+import { AllRemoveButtonStyle } from '../../../styles/CallPageStyle';
 
 const AllRemove = () => {
     const AllRemoveHandler = () => {
@@ -8,7 +8,7 @@ const AllRemove = () => {
     };
 
     return (
-        <Button sx={minusButtonStyle} onClick={AllRemoveHandler}>
+        <Button sx={AllRemoveButtonStyle} onClick={AllRemoveHandler}>
             전체 삭제
         </Button>
     );
