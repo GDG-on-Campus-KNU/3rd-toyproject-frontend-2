@@ -11,9 +11,9 @@ const callSlice = createSlice({
     initialState,
     reducers: {
         addCall: (state, action) => {
-            state.id = action.payload.id;
-            state.name = action.payload.name;
-            state.amount = action.payload.amount;
+            state.id = action.payload;
+            state.name = action.payload;
+            state.amount += 1;
         },
         removeCall: (state, action) => {
             state.id = 0;
