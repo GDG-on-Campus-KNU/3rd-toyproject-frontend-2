@@ -6,6 +6,7 @@ const StaffCallButton = ({ children }) => {
     const StaffBtnHandler = () => {
         alert('직원을 호출했습니다.');
     };
+
     return (
         <div>
             <Button sx={StaffCallButtonStyle} onClick={StaffBtnHandler} variant="outlined">
