@@ -13,8 +13,9 @@ const MenuCard = ({ id, image, menu, price }) => { //onSelect prop 추가
             "menuName":menu,
             "menuPrice":price,
             "amount":"1"
-        })
-        .then(function (response) {
+        },
+        { withCredentials: true }
+        ).then(function (response) {
             console.log(response);
         }).catch(function (error){
             console.log(error);
