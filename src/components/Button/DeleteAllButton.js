@@ -8,12 +8,14 @@ const numButtonStyle = {
   "&:hover": { bgcolor: "#808080" },
 };
 
-const DeleteAllButton = () => {
+const DeleteAllButton = ({ getPosts }) => {
   const DelAllClick = () => {
     alert("전체삭제 합니다.");
     // ㅡㅡㅡㅡㅡㅡ여기는 백엔드랑 프론트 기능 완성되면 확인가능ㅡㅡㅡㅡㅡ
-    axios.delete("http://35.208.58.86:8080/api/cart").then(() => {
+    axios.delete("/api/cart").then((res) => {
+      console.log(res);
       alert("전체삭제 되었습니다.");
+      getPosts();
     });
   };
 

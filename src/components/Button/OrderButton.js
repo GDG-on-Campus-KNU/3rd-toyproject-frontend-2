@@ -9,27 +9,29 @@ const orderButtonStyle = {
   "&:hover": { bgcolor: "#808080" },
 };
 
-const OrderButton = (props) => {
-  const { payment } = props;
+const OrderButton = ({ payment, getPosts }) => {
+  // const { payment, get } = props;
 
   const OrderClick = () => {
-    alert(payment + "로 결제한다.");
+    console.log(payment + "로 결제한다.");
 
     // ㅡㅡㅡㅡㅡㅡ여기는 백엔드랑 프론트 기능 완성되면 확인가능ㅡㅡㅡㅡㅡ
-    const getPosts = () => {
-      axios
-        .post("http://35.208.58.86:8080/api/payment", {
+    axios
+      .post(
+        "/api/payment",
+        {
           paymentMethod: payment,
-        })
-        .then((res) => {
-          console.log("zzz");
-          alert("주문이 완료되었습니다!");
-        });
-    };
-
-    useEffect(() => {
-      getPosts();
-    }, []);
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        console.log(res);
+        alert("주문이 완료되었습니다!");
+        getPosts();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
