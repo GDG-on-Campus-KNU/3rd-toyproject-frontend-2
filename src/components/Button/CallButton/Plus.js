@@ -1,11 +1,12 @@
-import { Card, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+
 import { buttonTextStyle1, plusButtonStyle } from '../../../styles/CallPageStyle';
 
 const Plus = () => {
     return (
-        <Card sx={plusButtonStyle}>
+        <button style={plusButtonStyle}>
             <Typography sx={buttonTextStyle1}>+</Typography>
-        </Card>
+        </button>
     );
 };
 
