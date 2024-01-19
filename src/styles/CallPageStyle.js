@@ -36,6 +36,7 @@ export const orderGridStyle = {
     alignContent: 'center',
     backgroundColor: '#ffffff',
     height: '37.7rem',
+    justifyContent: 'space-between',
 
     marginTop: '2.2rem',
     marginBottom: '2rem',
@@ -158,4 +159,9 @@ export const lineStyle = {
 
 export const callButtonContainerStyle = {
     flexDirection: 'row',
+};
+
+export const buttonContainerStyle = {
+    marginY: '1rem',
+    marginRight: '1rem',
 };

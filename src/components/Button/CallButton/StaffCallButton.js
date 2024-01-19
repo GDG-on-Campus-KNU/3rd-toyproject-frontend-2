@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 
 import { StaffCallButtonStyle } from '../../../styles/CallPageStyle';
 
@@ -8,11 +8,13 @@ const StaffCallButton = ({ children }) => {
     };
 
     return (
-        <div>
-            <Button sx={StaffCallButtonStyle} onClick={StaffBtnHandler} variant="outlined">
-                {children}
-            </Button>
-        </div>
+        <Grid container>
+            <Grid item xs={12}>
+                <Button sx={StaffCallButtonStyle} onClick={StaffBtnHandler} variant="outlined">
+                    {children}
+                </Button>
+            </Grid>
+        </Grid>
     );
 };
 
