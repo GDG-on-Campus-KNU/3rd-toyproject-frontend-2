@@ -1,0 +1,12 @@
+:root {
+  background: #202124;
+}
+
+.homelogo {
+  width: 100vw;
+  height: 100vh;
+  background: #202124;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
