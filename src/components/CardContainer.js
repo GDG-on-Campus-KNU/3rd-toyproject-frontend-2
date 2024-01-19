@@ -1,10 +1,32 @@
 import { Button, Grid } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { callCardStyle } from '../styles/CallPageStyle';
+import { callResult } from '../store/callAction';
 
 const CardContainer = () => {
+    const dispatch = useDispatch();
+
+    const id = useSelector((state) => state.call.id);
+    const name = useSelector((state) => state.call.name);
+    const amount = useSelector((state) => state.call.amount);
+
+    const handleButtonClick = async (e) => {
+        e.preventDefault();
+
+        await dispatch(callResult(id, name, amount));
+
+        console.log('name: ', name);
+    };
+
+    const a = useSelector((state) => {
+        return state;
+    });
+    console.log(a.call.amount);
+    console.log(a.call);
+
     const onClickHandler = (name) => {
-        console.log(`${name}을(를) 호출했습니다.`);
+        console.log(`${a.call.name}을(를) 호출했습니다.`);
     };
 
     return (
@@ -15,7 +37,8 @@ const CardContainer = () => {
                     id="1"
                     name="숟가락"
                     variant="outlined"
-                    onClick={() => onClickHandler('숟가락')}
+                    // onClick={() => onClickHandler('숟가락')}
+                    onClick={handleButtonClick}
                 >
                     숟가락
                 </Button>
