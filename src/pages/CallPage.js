@@ -5,7 +5,8 @@ import OrderContainer from '../components/OrderContainer.js';
 import CardContainer from '../components/CardContainer.js';
 import CategoryBar from '../components/CategoryBar.js';
 import Footer from '../components/Footer.js';
-import { orderGridStyle } from '../styles/CallPageStyle.js';
+import { buttonContainerStyle, orderGridStyle } from '../styles/CallPageStyle.js';
+import ButtonContainer from '../components/ButtonContainer.js';
 
 const CallPage = () => {
     return (
@@ -16,15 +17,20 @@ const CallPage = () => {
                 </Grid>
                 <Grid item xs={6}>
                     <CardContainer />
-                    <Grid item xs={12}>
-                        <StaffCallButton>직원만 호출하기</StaffCallButton>
-                    </Grid>
+
+                    <StaffCallButton>직원만 호출하기</StaffCallButton>
                 </Grid>
                 <Grid container sx={orderGridStyle} xs={4}>
-                    <OrderContainer />
-                    <OrderContainer />
+                    <Grid item>
+                        <OrderContainer />
+                        <OrderContainer />
+                    </Grid>
+
+                    <Grid item sx={buttonContainerStyle}>
+                        <ButtonContainer />
+                    </Grid>
                 </Grid>
-                <Grid container marginTop={4} justifyContent="flex-end">
+                <Grid container justifyContent="flex-end">
                     <Footer />
                 </Grid>
             </Grid>

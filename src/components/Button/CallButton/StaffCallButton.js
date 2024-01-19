@@ -1,32 +1,20 @@
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
+
+import { StaffCallButtonStyle } from '../../../styles/CallPageStyle';
 
 const StaffCallButton = ({ children }) => {
-    return (
-        <div>
-            <Button
-                sx={{
-                    m: 5,
-                    color: 'black',
-                    backgroundColor: '#FFC700',
-                    borderColor: 'black',
-                    width: '29rem',
-                    // width: '33.5rem',
-                    height: '3rem',
-                    borderRadius: 3,
-                    marginX: 'auto',
-                    fontSize: '1.2rem',
+    const StaffBtnHandler = () => {
+        alert('직원을 호출했습니다.');
+    };
 
-                    ':hover': {
-                        color: 'black',
-                        borderColor: 'black',
-                        backgroundColor: '#FFC700',
-                    },
-                }}
-                variant="outlined"
-            >
-                {children}
-            </Button>
-        </div>
+    return (
+        <Grid container>
+            <Grid item xs={12}>
+                <Button sx={StaffCallButtonStyle} onClick={StaffBtnHandler} variant="outlined">
+                    {children}
+                </Button>
+            </Grid>
+        </Grid>
     );
 };
 
