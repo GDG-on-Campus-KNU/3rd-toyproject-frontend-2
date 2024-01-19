@@ -8,7 +8,7 @@ import React from 'react'; //추가
 
 const MenuCard = ({ id, image, menu, price }) => { //onSelect prop 추가
     const handleClick = () => { //추가 (메뉴 카드가 클릭되면 onSelect 함수 호출)
-        axios.post('http://35.208.58.86:8080/api/cart',{
+        axios.post('/api/cart',{
             "menuId":id,
             "menuName":menu,
             "menuPrice":price,
