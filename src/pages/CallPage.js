@@ -6,8 +6,6 @@ import CardContainer from '../components/CardContainer.js';
 import CategoryBar from '../components/CategoryBar.js';
 import Footer from '../components/Footer.js';
 import { orderGridStyle } from '../styles/CallPageStyle.js';
-import AllRemove from '../components/Button/CallButton/AllRemove.js';
-import RequestButton from '../components/Button/CallButton/RequestButton.js';
 import ButtonContainer from '../components/ButtonContainer.js';
 
 const CallPage = () => {
@@ -17,9 +15,9 @@ const CallPage = () => {
                 <Grid item xs={2}>
                     <CategoryBar category="call" />
                 </Grid>
-                <Grid container marginTop={4} xs={6}>
+                <Grid item xs={6}>
                     <CardContainer />
-                    <Grid item xs={12}>
+                    <Grid>
                         <StaffCallButton>직원만 호출하기</StaffCallButton>
                     </Grid>
                 </Grid>
