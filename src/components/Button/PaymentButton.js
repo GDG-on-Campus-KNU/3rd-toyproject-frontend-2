@@ -30,7 +30,7 @@ function SimpleDialog(props) {
   };
 
   const handleListItemClick = (value) => {
-    // console.log(value); //선택된거 확인
+    console.log(value); //선택된거 확인
     onClose(value);
   };
 
